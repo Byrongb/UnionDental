@@ -8,7 +8,7 @@ header.appendChild(menuBtn);
 
 const logoImg = document.createElement('img');
 logoImg.id = 'logo';
-logoImg.src = 'https://o.remove.bg/downloads/3db5d2f4-4d98-4e49-948b-c9f35354d563/352008352_1329804570903835_4932891701089628596_n-removebg-preview.png';
+logoImg.src = 'https://i.postimg.cc/Kv0L0TRC/352008352-1329804570903835-4932891701089628596-n-removebg-preview.png';
 logoImg.alt = 'Logo del laboratorio dental';
 header.appendChild(logoImg);
 

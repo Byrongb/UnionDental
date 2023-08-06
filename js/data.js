@@ -1,7 +1,7 @@
 const squaresData = [
   {
       title: "Los mejores diseños de sonrisa",
-      image: "https://o.remove.bg/downloads/74cc34c3-f828-480a-ae53-47a1b865bf18/image-removebg-preview.png",
+      image: "https://i.postimg.cc/hPmWrLyt/image-removebg-preview-6.png",
   },
   {
       title: "¿NECESITAS CALIDAD Y CONFIANZA EN CADA DISEÑO?",
