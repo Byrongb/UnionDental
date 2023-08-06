@@ -1,112 +1,37 @@
-const products = [
-    {
-      id: 'corona1',
-      name: 'Corona de porcelana',
-      category: 'Coronas',
-      image: 'https://www.clinicaferrusbratos.com/app/uploads/corona-de-zirconio-ventajas.jpg',
-      price: 120,
-      brand: 'Marca X',
-      rating: 4.5,
-      numReviews: 10,
-      description: 'Corona de porcelana de alta calidad.',
-    },
-    {
-      id: 'implante1',
-      name: 'Implante dental',
-      category: 'Implantes',
-      image: 'https://www.implanet.cl/wp-content/uploads/2022/06/de-que-esta-hecha-la-corona-de-un-implante.jpg',
-      price: 300,
-      brand: 'Marca Y',
-      rating: 4.7,
-      numReviews: 15,
-      description: 'Implante dental de titanio.',
-    },
-    {
-      id: 'puente1',
-      name: 'Puente dental',
-      category: 'Puentes',
-      image: 'https://clinicadentalservet.com/wp-content/uploads/2023/03/tipos-puentes-dentales.jpg',
-      price: 200,
-      brand: 'Marca Z',
-      rating: 4.6,
-      numReviews: 12,
-      description: 'Puente dental de porcelana.',
-    },
-    {
-      id: 'incrustacion1',
-      name: 'Incrustación dental',
-      category: 'Incrustaciones',
-      image: 'https://clinicadentalgaudi.com/wp-content/uploads/2021/03/iStock-1152517544.jpg',
-      price: 150,
-      brand: 'Marca X',
-      rating: 4.5,
-      numReviews: 10,
-      description: 'Incrustación dental de composite.',
-    },
-    {
-      id: 'corona2',
-      name: 'Corona de zirconio',
-      category: 'Coronas',
-      image: 'https://www.clinicaferrusbratos.com/app/uploads/corona-de-zirconio-ventajas.jpg',
-      price: 140,
-      brand: 'Marca Y',
-      rating: 4.8,
-      numReviews: 20,
-      description: 'Corona de zirconio de alta resistencia.',
-    },
-    {
-      id: 'implante2',
-      name: 'Implante dental de cerámica',
-      category: 'Implantes',
-      image: 'https://clinicavargasridao.com/wp-content/uploads/2020/02/implantes-zirconio.jpg',
-      price: 350,
-      brand: 'Marca Z',
-      rating: 4.7,
-      numReviews: 18,
-      description: 'Implante dental de cerámica.',
-    },
-    {
-      id: 'puente2',
-      name: 'Puente dental de zirconio',
-      category: 'Puentes',
-      image: 'https://www.dentaltix.com/es/sites/default/files/puente-dental-protesis-fija.jpg',
-      price: 220,
-      brand: 'Marca X',
-      rating: 4.6,
-      numReviews: 14,
-      description: 'Puente dental de zirconio.',
-    },
-    {
-      id: 'incrustacion2',
-      name: 'Incrustación dental de porcelana',
-      category: 'Incrustaciones',
-      image: 'https://galvan.es/wp-content/uploads/2021/05/incrustacion-porcelana-onlay.jpg',
-      price: 160,
-      brand: 'Marca Y',
-      rating: 4.5,
-      numReviews: 12,
-      description: 'Incrustación dental de porcelana.',
-    },
-    {
-      id: 'corona3',
-      name: 'Corona de metal',
-      category: 'Coronas',
-      image: 'https://soluciondental.pe/wp-content/uploads/2019/07/corona-dental-met%C3%A1lica.jpg',
-      price: 100,
-      brand: 'Marca Z',
-      rating: 4.4,
-      numReviews: 8,
-      description: 'Corona de metal de alta durabilidad.',
-    },
-    {
-      id: 'implante3',
-      name: 'Implante dental de zirconio',
-      category: 'Implantes',
-      image: 'https://clinicamuller.es/wp-content/uploads/2016/06/implante-zirconio.jpg',
-      price: 400,
-      brand: 'Marca X',
-      rating: 4.9,
-      numReviews: 22,
-      description: 'Implante dental de zirconio.',
-    },
-  ];
+const squaresData = [
+  {
+      title: "Los mejores diseños de sonrisa",
+      image: "https://o.remove.bg/downloads/74cc34c3-f828-480a-ae53-47a1b865bf18/image-removebg-preview.png",
+  },
+  {
+      title: "¿NECESITAS CALIDAD Y CONFIANZA EN CADA DISEÑO?",
+      description: "¡SOMOS TU MEJOR OPCIÓN!",
+      image: "https://scontent.fgua5-1.fna.fbcdn.net/v/t39.30808-6/365142163_109729882216982_3992587420209823103_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=b71Kdbq-llQAX-Ayj1U&_nc_ht=scontent.fgua5-1.fna&oh=00_AfDj1iZcBIo13TrC4pDZCfx5uKIBXKtABAq3aPtxMeCB9Q&oe=64D4AAFA"
+  },
+  
+  {
+      title: "PRECISION Y CALIDAD EN LA FABRICACION",
+      description: " Técnicas avanzadas para producir prótesis dentales de alta precisión y calidad, asegurando un ajuste perfecto y durabilidad a largo plazo.",
+      image: "path_to_topic_image1.jpg"
+  },
+  {
+      title: "EXCELENCIA",
+      description: "Eficiencia y calidad de los productos y servicios del laboratorio.",
+      image: "path_to_topic_image2.jpg"
+  },
+  {
+      title: "HIGIENE Y ESTERILIZACION",
+      description: "Seguridad y salud tanto del personal como de los pacientes.",
+      image: "path_to_topic_image3.jpg"
+  },
+  {
+      title: "TRABAJO PERSONALIZADO",
+      description: "Soluciones personalizadas y adaptadas a las necesidades específicas de cada caso.",
+      image: "path_to_topic_image4.jpg"
+  },
+  {
+      title: "¡Pónganos a prueba!",
+      description: "Descubre por qué los doctores confían en Laboratorio Unión Dental. Nuestro compromiso con la calidad, la innovación y la satisfacción del cliente nos convierte en tu mejor opción.",
+  }
+];
+

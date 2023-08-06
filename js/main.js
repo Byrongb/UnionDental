@@ -1,338 +1,105 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var contenidoDiv = document.getElementById('contenido');
-  
-    var inicioHTML = `
-      <div class="home">
-        <h1 class="titulo">Unión Dental</h1>
-        <p class="descripcion">¡Bienvenido a Unión Dental!</p>
-        <button class="boton-primario">Empezar</button>
-      </div>
-    `;
-  
-    contenidoDiv.innerHTML = inicioHTML;
-  
-    var principalHTML = ` 
-    <div class="barra-superior">
-      <div class="menu-desplegable">
-        <button id="menuButton" class="icono">
-          &#9776;
-        </button>
-        <h1 class="titulo-centrado">Unión Dental</h1>
-        <div class="buscador">
-          <input type="text" placeholder="Buscar productos" id="buscadorInput">
-          <div id="carritoDiv">
-            <button id="carritoButton">&#128722;</button>
-            <div id="carritoCantidad" class="cantidad-carrito">0</div>
-          </div>
-        </div>
-        <div class="menu">
-          <a href="#" id="homeLink">HOME</a>
-          <a href="#" id="menLink">CORONAS</a>
-          <a href="#" id="accesoriosLink">INCRUSTACIONES</a>
-          <a href="#" id="backpackLink">PUENTES</a>
-        </div>
-      </div>
-    </div>
-  <div class="principal">
-    <div class="slides" id="slidesDiv">
-      <button class="boton-slider" id="anteriorButton">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <img src="https://source.unsplash.com/400x600/?fashion" alt="Prenda de moda">
-      <button class="boton-slider" id="siguienteButton">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </div>
-    <div class="productos"></div>
-  </div>
-  <div class="footer">
-    <p>Derechos de autor &copy; 2023 Men Style. Todos los derechos reservados.</p>
-  </div>
-    `;
-  
-    var carrito = []; 
-    var currentCategory = "Inicio";
-  
-    function mostrarContenido(categoria, query) {
-      var productosDiv = document.querySelector('.productos');
-      var productosHTML = '';
-      var productosCategoria;
-      var slidesDiv = document.getElementById('slidesDiv');
-      currentCategory = categoria; 
-      
-  
-      switch (categoria) {
-        case "Inicio": 
-          productosCategoria = sueteres; 
-          slidesDiv.style.display = 'block';
-          break;
-        case "Top": 
-          productosCategoria = [...camisas, ...sueteres];
-          slidesDiv.style.display = 'none';
-          break;
-        case "Lowe":
-          productosCategoria = pantalones;
-          slidesDiv.style.display = 'none';
-          break;
-        case "Accesories":
-          productosCategoria = accesorios;
-          slidesDiv.style.display = 'none';
-          break;
-        default:
-          productosCategoria = [];
-      }
-  
-      if (query) {
-        productosCategoria = productosCategoria.filter(producto =>
-          producto.Descripcion.toLowerCase().includes(query.toLowerCase()));
-      }
-  
-      for (var i = 0; i < productosCategoria.length; i++) {
-        productosHTML += `
-          <div class="modulo">
-            <img src="${productosCategoria[i].URL}">
-            <p class="descripcion">${productosCategoria[i].Descripcion}</p>
-            <p class="precio">${productosCategoria[i].Precio}</p>
-            <p class="talla">Talla: ${productosCategoria[i].Talla}</p>
-            <a href="#" class="boton" data-producto-id="${i}">Agregar al carrito</a>
-          </div>
-        `;
-      }
-  
-      productosDiv.innerHTML = productosHTML;
-  
-      var botonesAgregarCarrito = document.querySelectorAll('.boton');
-      botonesAgregarCarrito.forEach(boton => {
-        boton.addEventListener('click', function(e) {
-          e.preventDefault();
-          var productoId = this.dataset.productoId;
-          carrito.push(productosCategoria[productoId]);
-          actualizarContadorCarrito();
-        });
-      });
+// Creando el header
+const header = document.createElement('header');
+
+const menuBtn = document.createElement('button');
+menuBtn.id = 'menu-btn';
+menuBtn.innerHTML = '&#9776;';
+header.appendChild(menuBtn);
+
+const logoImg = document.createElement('img');
+logoImg.id = 'logo';
+logoImg.src = 'https://o.remove.bg/downloads/3db5d2f4-4d98-4e49-948b-c9f35354d563/352008352_1329804570903835_4932891701089628596_n-removebg-preview.png';
+logoImg.alt = 'Logo del laboratorio dental';
+header.appendChild(logoImg);
+
+document.body.appendChild(header);
+
+// Creando el contenido principal
+const main = document.createElement('main');
+
+const h1 = document.createElement('h1');
+h1.textContent = 'Arte y Precisión en Cada Creación Dental';
+main.appendChild(h1);
+
+const p = document.createElement('p');
+p.textContent = 'En Unión Dental, combinamos la artesanía tradicional con tecnologías avanzadas para producir restauraciones dentales de la más alta calidad. Desde coronas y puentes hasta prótesis y aparatos ortopédicos, cada pieza es cuidadosamente diseñada y fabricada para satisfacer las necesidades individuales de cada paciente, garantizando una sonrisa perfecta y funcional.';
+main.appendChild(p);
+
+const mainImg = document.createElement('img');
+mainImg.src = 'https://scontent.fgua5-1.fna.fbcdn.net/v/t39.30808-6/365166605_109729702217000_1883612272712863980_n.jpg?_nc_cat=106&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=czV7lSWSH5sAX9kIyTf&_nc_ht=scontent.fgua5-1.fna&oh=00_AfAljwBWL7TP2OvJVu_lGyLM91dd6tDakRI8UQFJyLwC2g&oe=64D4D1E2';
+mainImg.alt = 'Imagen relacionada con servicios dentales';
+main.appendChild(mainImg);
+
+document.body.appendChild(main);
+
+// Creando el menú lateral
+const nav = document.createElement('nav');
+nav.id = 'side-menu';
+
+const ul = document.createElement('ul');
+const items = ['PORTAFOLIO', 'HERRAMIENTAS', 'POLITICAS', 'CONTACTO'];
+items.forEach(item => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `#${item.toLowerCase()}`;
+    a.textContent = item;
+    li.appendChild(a);
+    ul.appendChild(li);
+});
+
+nav.appendChild(ul);
+document.body.appendChild(nav);
+
+// Funcionalidad para mostrar y ocultar el menú
+menuBtn.addEventListener('click', function() {
+    const menu = document.getElementById('side-menu');
+    if (menu.style.left !== '0px') {
+        menu.style.left = '0px';
+    } else {
+        menu.style.left = '-100%';
     }
-  
-    function actualizarContadorCarrito() {
-      var carritoCantidadDiv = document.getElementById('carritoCantidad');
-      carritoCantidadDiv.textContent = carrito.length;
+});
+
+// Funcionalidad para ocultar el menú al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('side-menu');
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickOnMenuBtn = menuBtn.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnMenuBtn && menu.style.left === '0px') {
+        menu.style.left = '-100%';
     }
-  
-    function mostrarPaginaPrincipal() {
-      contenidoDiv.innerHTML = principalHTML;
-      mostrarContenido("Inicio");
-  
-      var menuButton = document.getElementById('menuButton');
-      var menu = document.querySelector('.menu');
-      menuButton.addEventListener('click', function() {
-        menu.classList.toggle('mostrar');
-      });
-  
-      
-  
-      var enlacesMenu = ['homeLink', 'menLink', 'accesoriosLink', 'backpackLink'];
-      var contenidos = ['Inicio', 'Top', 'Lowe', 'Accesories'];
-      
-      enlacesMenu.forEach((enlace, index) => {
-        var linkElement = document.getElementById(enlace);
-        linkElement.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Mostramos el contenido correspondiente
-          mostrarContenido(contenidos[index]);
-          
-          // Y aquí es donde ocultamos el menú desplegable
-          menu.classList.remove('mostrar');
-        });
-  
-      });
-      
-  
-      var homeLink = document.getElementById('homeLink');
-      homeLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarContenido("Inicio");
-        document.getElementById('buscadorInput').value = '';
-      });
-  
-      var menLink = document.getElementById('menLink');
-      menLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarContenido("Top");
-        document.getElementById('buscadorInput').value = '';
-      });
-  
-      
-      var accesoriosLink = document.getElementById('accesoriosLink');
-      accesoriosLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarContenido("Lowe");
-        document.getElementById('buscadorInput').value = '';
-      });
-  
-      var backpackLink = document.getElementById('backpackLink');
-      backpackLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarContenido("Accesories");
-        document.getElementById('buscadorInput').value = '';
-      });
-  
-      var buscadorInput = document.getElementById('buscadorInput');
-      buscadorInput.addEventListener('input', function(e) {
-        e.preventDefault();
-        // Usamos 'currentCategory' en lugar de "Inicio"
-        mostrarContenido(currentCategory, this.value);
-        
-      });
-    
-  
-      var carritoButton = document.getElementById('carritoButton');
-      carritoButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarCarrito();
-      });
-  
-  
-    }
-    function mostrarCarrito() {
-      var slidesDiv = document.getElementById('slidesDiv');
-      slidesDiv.style.display = 'none';
-      var productosDiv = document.querySelector('.productos');
-      var productosHTML = '';
-      var total = 0;
-    
-      if (carrito.length === 0) {
-        productosHTML = `
-            <div class="contenedor-carrito-vacio">
-            <div class="carrito-vacio">
-              <p>El carrito está vacío</p>
-              <button id="comprarProductosButton">Comprar productos</button>
-            </div>
-          </div>
-        `;
-      } else {
-        var preciosHTML = '';
-        for (var i = 0; i < carrito.length; i++) {
-          // quitamos el "Q." antes de convertir a número
-          var precioSinQuetzal = carrito[i].Precio.replace("Q.", "");
-          // Convertimos el precio a un número flotante
-          var precioNumerico = parseFloat(precioSinQuetzal);
-          
-          productosHTML += `
-            <div class="modulo">
-              <img src="${carrito[i].URL}">
-              <p class="descripcion">${carrito[i].Descripcion}</p>
-              <p class="precio">${carrito[i].Precio}</p>
-              <p class="talla">Talla: ${carrito[i].Talla}</p>
-              <a href="#" class="boton" data-producto-id="${i}">Eliminar del carrito</a>
-            </div>
-          `;
-    
-          total += precioNumerico;
-          preciosHTML += `<p class="precio-individual">Producto ${i + 1}: ${carrito[i].Precio}</p>`;
-        }
-    
-        productosHTML += `
-          <div class="resumen-carrito">
-            ${preciosHTML}
-            <p class="precio-total">Total: Q.${total.toFixed(2)}</p>
-            <button class="boton-primario" id="continuarCompra">Continuar con la compra</button>
-          </div>
-        `;
-      }
-    
-      productosDiv.innerHTML = productosHTML;
-    
-      var comprarProductosButton = document.getElementById('comprarProductosButton');
-      if (comprarProductosButton) {
-        comprarProductosButton.addEventListener('click', function() {
-          mostrarContenido("Top");
-        });
-      }
-    
-      var botonesEliminarCarrito = document.querySelectorAll('.boton');
-      botonesEliminarCarrito.forEach(boton => {
-        boton.addEventListener('click', function(e) {
-          e.preventDefault();
-          var productoId = this.dataset.productoId;
-          carrito.splice(productoId, 1);
-          mostrarCarrito();
-        });
-      });
-    
-      // Aquí asignamos el evento click al botón continuarCompra
-      var continuarCompra = document.getElementById('continuarCompra');
-      if (continuarCompra) {
-        continuarCompra.addEventListener('click', function(e) {
-          e.preventDefault();
-          mostrarCheckout();
-        });
-      }
-    }
-  
-    function mostrarCheckout() {
-      var checkoutHTML = `
-      <div class="checkout" style="display: flex; flex-direction: column; align-items: center;">
-        <h1>Datos de la compra</h1>
-        <form id="checkoutForm" style="margin: auto;">
-          <div>
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required />
-          </div>
-          <div>
-            <label for="nombre">Nombre y Apellido:</label>
-            <input type="text" id="nombre" name="nombre" required />
-          </div>
-          <div>
-            <label for="direccion">Dirección de entrega:</label>
-            <input type="text" id="direccion" name="direccion" required />
-          </div>
-          <div>
-            <label for="numero">Número de teléfono:</label>
-            <input type="tel" id="numero" name="numero" required />
-          </div>
-          <button class="boton-primario" id="enviarFormulario">Enviar</button>
-          <button type="button" class="boton-secundario" id="cancelarCompra">Cancelar Compra</button>
-        </form>
-      </div>
-    `;
-  
-    contenidoDiv.innerHTML = checkoutHTML;
-  
-    var checkoutForm = document.getElementById('checkoutForm');
-    checkoutForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Aquí puedes hacer alguna validación adicional si es necesario
-      mostrarGraciasPorCompra();
-    });
-  
-    var cancelarCompra = document.getElementById('cancelarCompra');
-    cancelarCompra.addEventListener('click', function(e) {
-      e.preventDefault();
-      mostrarPaginaPrincipal();
-    });
+});
+
+// Agregando los 8 cuadrados debajo de la imagen
+for (let i = 1; i <= 7; i++) {
+  const square = document.createElement('div');
+  square.classList.add('square');
+  square.classList.add(`square-${i}`); // Clase específica para cada cuadrado
+  main.appendChild(square);
+}
+
+const squares = document.querySelectorAll('.square');
+
+// Agregar el contenido a los cuadrados basado en squaresData
+squaresData.forEach((squareData, index) => {
+  // Eliminar todos los hijos del cuadrado antes de agregar nuevo contenido.
+  while (squares[index].firstChild) {
+      squares[index].removeChild(squares[index].firstChild);
   }
-  
-  function mostrarGraciasPorCompra() {
-    var graciasHTML = `
-      <div class="checkout" style="display: flex; flex-direction: column; align-items: center;">        <h1>Gracias por tu compra</h1>
-        <img id="carritoAnimado" src="https://cdn.dribbble.com/users/605899/screenshots/2110095/media/c27a0b6582970256a6071bdef4f44d80.gif" />
-        <p>Te hemos enviado un correo de confirmación.</p>
-        <button class="boton-primario" id="volverInicio">Volver a inicio</button>
-      </div>
-    `;
-  
-    contenidoDiv.innerHTML = graciasHTML;
-  
-    var volverInicio = document.getElementById('volverInicio');
-    volverInicio.addEventListener('click', function() {
-      location.reload();  // Esto recarga la página para reiniciar la aplicación.
-    });
+
+  const h2 = document.createElement('h2');
+  h2.textContent = squareData.title;
+  squares[index].appendChild(h2);
+
+  if (index !== 6) { // El índice 6 corresponde a square-7
+    const img = document.createElement('img');
+    img.src = squareData.image;
+    squares[index].appendChild(img);
   }
+
+  const desc = document.createElement('p');
+  desc.textContent = squareData.description;
+  squares[index].appendChild(desc);
   
-  var inicioButton = document.querySelector('.boton-primario');
-    inicioButton.addEventListener('click', mostrarPaginaPrincipal);
-  });
+});
