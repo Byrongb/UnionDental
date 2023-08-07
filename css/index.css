@@ -228,7 +228,7 @@ summary p {
   background-repeat: no-repeat;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   /* 1. El header solo lleva el logo */
   #menu-btn {
     display: none; /* Ocultamos el botón del menú para dispositivos móviles */
@@ -357,8 +357,18 @@ summary p {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 699px) {
   #slider, #horizontal-menu {
       display: none;
+  }
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 699px) {
+  #logo {
+    max-width: 22%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
   }
 }
