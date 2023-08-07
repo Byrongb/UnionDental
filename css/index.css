@@ -19,7 +19,7 @@ header {
 #menu-btn {
   position: absolute;
   left: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border: none;
   font-size: 24px;
   cursor: pointer;
@@ -43,7 +43,8 @@ main img {
 }
 
 main p {
-  padding: 10px; 
+  padding: 30px; 
+  text-align: center;
 }
 
 nav#side-menu {
@@ -181,11 +182,18 @@ nav#side-menu ul li a {
   margin-top: -40px;
 }
 
-h3, p {
+
+summary {
+  font-size: 25px;
+  line-height: 4;
   text-align: left;
-  padding-left: 10px; /* Esto agrega un pequeño padding para que no esté totalmente pegado al borde. Ajusta según prefieras. */
+  padding: 15px;
+  margin-top: -15%;
 }
 
+summary p {
+  margin-top: 0;
+}
 
 .whatsapp-btn {
   background-color: #25D366; 
