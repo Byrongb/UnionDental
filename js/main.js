@@ -1,7 +1,6 @@
 // Creando el header
 const header = document.createElement('header');
 
-
 const menuBtn = document.createElement('button');
 menuBtn.id = 'menu-btn';
 menuBtn.innerHTML = '&#9776;';
@@ -17,6 +16,56 @@ document.body.appendChild(header);
 
 // Creando el contenido principal
 const main = document.createElement('main');
+
+function createSlider() {
+    const slider = document.createElement('div');
+  slider.id = 'slider';
+
+  const slide1 = document.createElement('img');
+  slide1.className = 'slide';
+  slide1.src = 'https://www.maimonides.edu/wp-content/uploads/2019/11/20191101-shutterstock-protesis-dental-2.jpg'; 
+
+  const slide2 = document.createElement('img');
+  slide2.className = 'slide';
+  slide2.src = 'https://www.escolapejoan.com/wp-content/uploads/2018/04/c7b93e01b468a24f02e258ffe263cd87_XL-768x408.jpg'; 
+  
+  const slide3 = document.createElement('img');
+  slide3.className = 'slide';
+  slide3.src = 'https://dentalforum.es/wp-content/uploads/2019/02/Tecnico-Dental-690x435.jpg'; 
+
+  const slide4 = document.createElement('img');
+  slide4.className = 'slide';
+  slide4.src = 'https://titulae.es/wp-content/uploads/2021/11/estudiar-protesico-dental.jpg'; 
+
+  slider.appendChild(slide1);
+  slider.appendChild(slide2);
+  slider.appendChild(slide3);
+  slider.appendChild(slide4);
+
+
+  // Agregamos el slider después del menú horizontal y antes del contenido principal.
+  document.body.insertBefore(slider, main);
+  
+
+  let currentSlide = 0;
+  const slides = slider.querySelectorAll('.slide');
+  
+  slides[0].style.opacity = 1;  // Asegurarnos de que el primer slide se muestre al principio
+
+  setInterval(() => {
+      slides[currentSlide].style.opacity = 0; // Ocultar slide actual
+      currentSlide = (currentSlide + 1) % slides.length; // Siguiente slide
+      slides[currentSlide].style.opacity = 1; // Mostrar siguiente slide
+  }, 5000);
+
+    
+  return slider;
+}
+
+function toggleSlider(visibility) {
+    const slider = document.getElementById('slider');
+    slider.style.display = visibility ? 'block' : 'none';
+}
 
 const h1 = document.createElement('h1');
 h1.textContent = 'Arte y Precisión en Cada Creación Dental';
@@ -50,6 +99,21 @@ items.forEach(item => {
 
 nav.appendChild(ul);
 document.body.appendChild(nav);
+
+// Creación del menú horizontal
+const horizontalMenu = document.createElement('nav');
+horizontalMenu.id = 'horizontal-menu';
+const horizontalUl = document.createElement('ul');
+items.forEach(item => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `#${item.toLowerCase()}`;
+    a.textContent = item;
+    li.appendChild(a);
+    horizontalUl.appendChild(li);
+});
+horizontalMenu.appendChild(horizontalUl);
+document.body.insertBefore(horizontalMenu, main); // Insertar justo antes del contenido principal
 
 // Funcionalidad para mostrar y ocultar el menú
 menuBtn.addEventListener('click', function() {
@@ -93,42 +157,44 @@ function displayHome() {
     main.appendChild(homeImage);
 
     // Restaurar los cuadrados
- for (let i = 1; i <= 7; i++) {
-  const square = document.createElement('div');
-  square.classList.add('square');
-  square.classList.add(`square-${i}`); // Clase específica para cada cuadrado
-  main.appendChild(square);
-}
+    for (let i = 1; i <= 7; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.classList.add(`square-${i}`); // Clase específica para cada cuadrado
+        main.appendChild(square);
+    }
 
-const squares = document.querySelectorAll('.square');
+    const squares = document.querySelectorAll('.square');
 
-// Agregar el contenido a los cuadrados basado en squaresData
-squaresData.forEach((squareData, index) => {
-  // Eliminar todos los hijos del cuadrado antes de agregar nuevo contenido.
-  while (squares[index].firstChild) {
-      squares[index].removeChild(squares[index].firstChild);
-  }
+    // Agregar el contenido a los cuadrados basado en squaresData
+    squaresData.forEach((squareData, index) => {
+        // Eliminar todos los hijos del cuadrado antes de agregar nuevo contenido.
+        while (squares[index].firstChild) {
+            squares[index].removeChild(squares[index].firstChild);
+        }
 
-  const h2 = document.createElement('h2');
-  h2.textContent = squareData.title;
-  squares[index].appendChild(h2);
+        const h2 = document.createElement('h2');
+        h2.textContent = squareData.title;
+        squares[index].appendChild(h2);
 
-  if (index !== 6) { // El índice 6 corresponde a square-7
-    const img = document.createElement('img');
-    img.src = squareData.image;
-    squares[index].appendChild(img);
-  }
+        if (index !== 6) { // El índice 6 corresponde a square-7
+            const img = document.createElement('img');
+            img.src = squareData.image;
+            squares[index].appendChild(img);
+        }
 
-  const desc = document.createElement('p');
-  desc.textContent = squareData.description;
-  squares[index].appendChild(desc);
-  
-});
+        const desc = document.createElement('p');
+        desc.textContent = squareData.description;
+        squares[index].appendChild(desc);
+
+
+    });
 }
 
 // Vinculamos la función displayHome() al botón "HOME" y al logo
 document.querySelector('a[href="#home"]').addEventListener('click', function() {
     displayHome();
+    toggleSlider(true);
     document.getElementById('side-menu').style.left = '-100%'; // Ocultar el menú lateral
 });
 
@@ -155,15 +221,15 @@ function displaySection(titleText, descriptionText) {
 }
 
 // Vinculamos la función a los botones correspondientes
-
-
 document.querySelector('a[href="#portafolio"]').addEventListener('click', function() {
     displaySection('Nuestro Portafolio', 'Aquí encontrarás una muestra de los productos que ofrece nuestro laboratorio dental.');
+    toggleSlider(true);
     document.getElementById('side-menu').style.left = '-100%';
 });
 
 document.querySelector('a[href="#herramientas"]').addEventListener('click', function() {
     displaySection('Nuestras herramientas', 'Descripción o información sobre las herramientas que utilizamos.');
+    toggleSlider(true);
     document.getElementById('side-menu').style.left = '-100%';
 });
 
@@ -191,8 +257,8 @@ document.querySelector('a[href="#politicas"]').addEventListener('click', functio
     });
 
     document.getElementById('side-menu').style.left = '-100%'; // Ocultar el menú lateral
+    toggleSlider(false);
 });
-
 
 document.querySelector('a[href="#contacto"]').addEventListener('click', function() {
     displaySection('Contáctanos', ''); // Limpiamos la descripción previa para agregar el mapa y el formulario
@@ -255,6 +321,8 @@ whatsappButton.prepend(whatsappIcon);  // Agregar el ícono antes del texto
 
 main.appendChild(whatsappButton);
 document.getElementById('side-menu').style.left = '-100%';
-
+toggleSlider(false);
 });
-displayHome();
+
+displayHome()
+createSlider();

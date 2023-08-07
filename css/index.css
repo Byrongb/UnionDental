@@ -183,6 +183,15 @@ nav#side-menu ul li a {
   margin-top: -40px;
 }
 
+h3, p {
+  text-align: left;
+  padding-left: 10px; /* Esto agrega un pequeño padding para que no esté totalmente pegado al borde. Ajusta según prefieras. */
+}
+
+details {
+  margin-bottom: 20px;
+}
+
 
 summary {
   font-size: 25px;
@@ -219,3 +228,131 @@ summary p {
   background-repeat: no-repeat;
 }
 
+@media (min-width: 768px) {
+  /* 1. El header solo lleva el logo */
+  #menu-btn {
+    display: none; /* Ocultamos el botón del menú para dispositivos móviles */
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(186, 186, 216); /* Color azul para el fondo del header */
+    height: 150px;
+    padding: 0 10px;
+  }
+
+  #logo {
+    max-width: 25%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
+  }
+  
+  
+  /* 2. Menú horizontal */
+  #horizontal-menu {
+    display: block; /* Mostrar el menú */
+  }
+
+  #horizontal-menu ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 25px;
+  }
+
+  #horizontal-menu ul li a {
+    padding: 10px 20px;
+    background-color: rgb(186, 186, 216);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  #horizontal-menu ul li a:hover {
+    background-color: blue;
+  }
+
+  nav#side-menu {
+    display: none; /* Ocultar el menú lateral en tablets */
+  }
+
+  /* 3. Slider */
+  #slider {
+    position: relative;
+    width: 100%;
+    height: 20vh;  /* 20% de la altura de la ventana */
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+#slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que las imágenes se adapten al tamaño de la caja sin distorsionarse */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#slider img {
+    width: 100%;
+}
+
+#slider .slide:first-child {
+  animation: sliderAnimation1 20s infinite;
+}
+
+#slider .slide:nth-child(2) {
+  animation: sliderAnimation2 20s infinite;
+}
+
+#slider .slide:nth-child(3) {
+  animation: sliderAnimation3 20s infinite;
+}
+
+#slider .slide:nth-child(4) {
+  animation: sliderAnimation4 20s infinite;
+}
+
+@keyframes sliderAnimation1 {
+  0%, 20% { opacity: 1; }
+  25%, 100% { opacity: 0; }
+}
+
+@keyframes sliderAnimation2 {
+  0%, 20% { opacity: 0; }
+  25%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes sliderAnimation3 {
+  0%, 45% { opacity: 0; }
+  50%, 70% { opacity: 1; }
+  75%, 100% { opacity: 0; }
+}
+
+@keyframes sliderAnimation4 {
+  0%, 70% { opacity: 0; }
+  75%, 99% { opacity: 1; }  /* Cambio aquí: desvanecer justo antes del 100% */
+  100% { opacity: 0; }
+}
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Ajusta la fuente y el espaciado para la sección de políticas */
+  summary {
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 0;
+  }
+
+  summary p {
+      margin-top: 5px;
+  }
+}
