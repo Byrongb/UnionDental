@@ -220,6 +220,117 @@ function displaySection(titleText, descriptionText) {
     main.appendChild(p);
 }
 
+const sideMenuLinks = document.querySelectorAll('#side-menu a');
+
+sideMenuLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+        const section = link.getAttribute('href').replace('#', '');
+
+        switch (section) {
+            case 'home':
+                displayHome();
+                document.getElementById('side-menu').style.left = '-100%';
+                break;
+            case 'portafolio':
+                displaySection('Nuestro Portafolio', 'Aquí encontrarás una muestra de los productos que ofrece nuestro laboratorio dental.');
+                document.getElementById('side-menu').style.left = '-100%';
+                break;
+            case 'herramientas':
+                displaySection('Nuestras herramientas', 'Descripción o información sobre las herramientas que utilizamos.');
+                document.getElementById('side-menu').style.left = '-100%';
+                break;
+            case 'politicas':
+                displaySection('Nuestras políticas', ''); // Aquí se puede agregar el contenido para la sección de políticas
+                const policies = [
+                    { title: "Políticas de Garantía", description: "Descripción detallada sobre las políticas de garantía." },
+                    { title: "Políticas de Facturación", description: "Información sobre cómo manejamos la facturación y los pagos." },
+                    { title: "Políticas de Calidad", description: "Nuestro compromiso con la calidad y cómo garantizamos el mejor servicio." },
+                    { title: "Políticas de Servicio", description: "Todo lo que necesitas saber sobre cómo trabajamos y qué puedes esperar de nuestro servicio." }
+                ];
+            
+                policies.forEach(policy => {
+                    const details = document.createElement('details');
+                    const summary = document.createElement('summary');
+                    summary.textContent = policy.title;
+                    details.appendChild(summary);
+            
+                    const policyDesc = document.createElement('p');
+                    policyDesc.textContent = policy.description;
+                    details.appendChild(policyDesc);
+            
+                    main.appendChild(details);
+                });
+            
+                document.getElementById('side-menu').style.left = '-100%'; // Ocultar el menú lateral
+                toggleSlider(false);
+                break;
+            case 'contacto':
+                displaySection('Contáctanos', ''); // Aquí se puede agregar el contenido para la sección de contacto
+                const mapFrame = document.createElement('iframe');
+    mapFrame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.3536343273854!2d-90.592542!3d14.6316413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a1e29779d265%3A0x90b922a124a85e6c!2sLaboratorio%20Uni%C3%B3n%20Dental!5e0!3m2!1ses-419!2sgt!4v1691364815173!5m2!1ses-419!2sgt";  // Reemplaza con la URL del iframe que copiaste de Google Maps
+    mapFrame.width = "280";
+    mapFrame.height = "300";
+    mapFrame.frameborder = "0";
+    mapFrame.style.border = "0";
+    main.appendChild(mapFrame);
+
+    // 4. Formulario de contacto
+    // Sección de dirección
+const addressTitle = document.createElement('h3');
+addressTitle.textContent = 'Dirección:';
+main.appendChild(addressTitle);
+
+const addressContent = document.createElement('p');
+addressContent.textContent = 'Dirección exacta del laboratorio dental.';
+main.appendChild(addressContent);
+
+// Sección de teléfono
+const phoneTitle = document.createElement('h3');
+phoneTitle.textContent = 'Teléfono:';
+main.appendChild(phoneTitle);
+
+const phoneContent = document.createElement('p');
+phoneContent.textContent = '(502) 4060-6440';
+main.appendChild(phoneContent);
+
+// Sección de correo
+const emailTitle = document.createElement('h3');
+emailTitle.textContent = 'Correo:';
+main.appendChild(emailTitle);
+
+const emailContent = document.createElement('p');
+emailContent.textContent = 'correo@laboratoriodental.com';  // Reemplaza con el correo real
+main.appendChild(emailContent);
+
+// Sección de motivación para escribir
+const motivationTitle = document.createElement('h3');
+motivationTitle.textContent = '¡No dudes en escribirnos!';
+main.appendChild(motivationTitle);
+
+const motivationContent = document.createElement('p');
+motivationContent.textContent = 'En Unión Dental, estamos comprometidos con brindarte la mejor atención y resolver todas tus preguntas. Contáctanos y te asesoraremos con la calidez y profesionalismo que nos caracteriza.';
+main.appendChild(motivationContent);
+
+// Botón de WhatsApp
+const whatsappButton = document.createElement('a');
+whatsappButton.href = 'https://wa.me/50240606440';  // Número de teléfono después de /me/
+whatsappButton.textContent = ' Escríbenos por WhatsApp';  // Espacio agregado para separar el ícono del texto
+whatsappButton.classList.add('whatsapp-btn');  // Clase para darle estilos CSS
+whatsappButton.style.display = 'inline-block'; 
+// Ícono de WhatsApp
+const whatsappIcon = document.createElement('span');
+whatsappIcon.classList.add('whatsapp-icon');
+whatsappButton.prepend(whatsappIcon);  // Agregar el ícono antes del texto
+
+main.appendChild(whatsappButton);
+document.getElementById('side-menu').style.left = '-100%';
+;
+                break;
+        }
+    });
+});
+
 // Vinculamos la función a los botones correspondientes
 document.querySelector('a[href="#portafolio"]').addEventListener('click', function() {
     displaySection('Nuestro Portafolio', 'Aquí encontrarás una muestra de los productos que ofrece nuestro laboratorio dental.');
