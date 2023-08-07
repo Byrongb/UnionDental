@@ -180,3 +180,33 @@ nav#side-menu ul li a {
   line-height: 1.5;
   margin-top: -40px;
 }
+
+h3, p {
+  text-align: left;
+  padding-left: 10px; /* Esto agrega un pequeño padding para que no esté totalmente pegado al borde. Ajusta según prefieras. */
+}
+
+
+.whatsapp-btn {
+  background-color: #25D366; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.whatsapp-icon::before {
+  content: ""; 
+  margin-right: 8px;
+  display: inline-block;  
+  width: 20px;  /* Ajusta este valor según lo que necesites */
+  height: 20px;  /* Ajusta este valor según lo que necesites */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png');
+  background-size: cover;  /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+  background-repeat: no-repeat;
+}
+

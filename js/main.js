@@ -1,6 +1,7 @@
 // Creando el header
 const header = document.createElement('header');
 
+
 const menuBtn = document.createElement('button');
 menuBtn.id = 'menu-btn';
 menuBtn.innerHTML = '&#9776;';
@@ -92,37 +93,37 @@ function displayHome() {
     main.appendChild(homeImage);
 
     // Restaurar los cuadrados
-    for (let i = 1; i <= 7; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        square.classList.add(`square-${i}`); // Clase específica para cada cuadrado
-        main.appendChild(square);
-      }
-      
-      const squares = document.querySelectorAll('.square');
-      
-      // Agregar el contenido a los cuadrados basado en squaresData
-      squaresData.forEach((squareData, index) => {
-        // Eliminar todos los hijos del cuadrado antes de agregar nuevo contenido.
-        while (squares[index].firstChild) {
-            squares[index].removeChild(squares[index].firstChild);
-        }
-      
-        const h2 = document.createElement('h2');
-        h2.textContent = squareData.title;
-        squares[index].appendChild(h2);
-      
-        if (index !== 6) { // El índice 6 corresponde a square-7
-          const img = document.createElement('img');
-          img.src = squareData.image;
-          squares[index].appendChild(img);
-        }
-      
-        const desc = document.createElement('p');
-        desc.textContent = squareData.description;
-        squares[index].appendChild(desc);
-        
-      });
+ for (let i = 1; i <= 7; i++) {
+  const square = document.createElement('div');
+  square.classList.add('square');
+  square.classList.add(`square-${i}`); // Clase específica para cada cuadrado
+  main.appendChild(square);
+}
+
+const squares = document.querySelectorAll('.square');
+
+// Agregar el contenido a los cuadrados basado en squaresData
+squaresData.forEach((squareData, index) => {
+  // Eliminar todos los hijos del cuadrado antes de agregar nuevo contenido.
+  while (squares[index].firstChild) {
+      squares[index].removeChild(squares[index].firstChild);
+  }
+
+  const h2 = document.createElement('h2');
+  h2.textContent = squareData.title;
+  squares[index].appendChild(h2);
+
+  if (index !== 6) { // El índice 6 corresponde a square-7
+    const img = document.createElement('img');
+    img.src = squareData.image;
+    squares[index].appendChild(img);
+  }
+
+  const desc = document.createElement('p');
+  desc.textContent = squareData.description;
+  squares[index].appendChild(desc);
+  
+});
 }
 
 // Vinculamos la función displayHome() al botón "HOME" y al logo
@@ -167,11 +168,93 @@ document.querySelector('a[href="#herramientas"]').addEventListener('click', func
 });
 
 document.querySelector('a[href="#politicas"]').addEventListener('click', function() {
-    displaySection('Nuestras políticas', 'Información relevante sobre las políticas de nuestro laboratorio dental.');
-    document.getElementById('side-menu').style.left = '-100%';
+    displaySection('Nuestras políticas', '');  // Limpiamos la descripción previa para añadir las políticas detalladas
+
+    const policies = [
+        { title: "Políticas de Garantía", description: "Descripción detallada sobre las políticas de garantía." },
+        { title: "Políticas de Facturación", description: "Información sobre cómo manejamos la facturación y los pagos." },
+        { title: "Políticas de Calidad", description: "Nuestro compromiso con la calidad y cómo garantizamos el mejor servicio." },
+        { title: "Políticas de Servicio", description: "Todo lo que necesitas saber sobre cómo trabajamos y qué puedes esperar de nuestro servicio." }
+    ];
+
+    policies.forEach(policy => {
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = policy.title;
+        details.appendChild(summary);
+
+        const policyDesc = document.createElement('p');
+        policyDesc.textContent = policy.description;
+        details.appendChild(policyDesc);
+
+        main.appendChild(details);
+    });
+
+    document.getElementById('side-menu').style.left = '-100%'; // Ocultar el menú lateral
 });
 
+
 document.querySelector('a[href="#contacto"]').addEventListener('click', function() {
-    displaySection('Contáctanos', 'Información de contacto y cómo puedes ponerte en contacto con nosotros.');
-    document.getElementById('side-menu').style.left = '-100%';
+    displaySection('Contáctanos', ''); // Limpiamos la descripción previa para agregar el mapa y el formulario
+
+    const mapFrame = document.createElement('iframe');
+    mapFrame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.3536343273854!2d-90.592542!3d14.6316413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a1e29779d265%3A0x90b922a124a85e6c!2sLaboratorio%20Uni%C3%B3n%20Dental!5e0!3m2!1ses-419!2sgt!4v1691364815173!5m2!1ses-419!2sgt";  // Reemplaza con la URL del iframe que copiaste de Google Maps
+    mapFrame.width = "280";
+    mapFrame.height = "300";
+    mapFrame.frameborder = "0";
+    mapFrame.style.border = "0";
+    main.appendChild(mapFrame);
+
+    // 4. Formulario de contacto
+    // Sección de dirección
+const addressTitle = document.createElement('h3');
+addressTitle.textContent = 'Dirección:';
+main.appendChild(addressTitle);
+
+const addressContent = document.createElement('p');
+addressContent.textContent = 'Dirección exacta del laboratorio dental.';
+main.appendChild(addressContent);
+
+// Sección de teléfono
+const phoneTitle = document.createElement('h3');
+phoneTitle.textContent = 'Teléfono:';
+main.appendChild(phoneTitle);
+
+const phoneContent = document.createElement('p');
+phoneContent.textContent = '(502) 4060-6440';
+main.appendChild(phoneContent);
+
+// Sección de correo
+const emailTitle = document.createElement('h3');
+emailTitle.textContent = 'Correo:';
+main.appendChild(emailTitle);
+
+const emailContent = document.createElement('p');
+emailContent.textContent = 'correo@laboratoriodental.com';  // Reemplaza con el correo real
+main.appendChild(emailContent);
+
+// Sección de motivación para escribir
+const motivationTitle = document.createElement('h3');
+motivationTitle.textContent = '¡No dudes en escribirnos!';
+main.appendChild(motivationTitle);
+
+const motivationContent = document.createElement('p');
+motivationContent.textContent = 'En Unión Dental, estamos comprometidos con brindarte la mejor atención y resolver todas tus preguntas. Contáctanos y te asesoraremos con la calidez y profesionalismo que nos caracteriza.';
+main.appendChild(motivationContent);
+
+// Botón de WhatsApp
+const whatsappButton = document.createElement('a');
+whatsappButton.href = 'https://wa.me/50240606440';  // Número de teléfono después de /me/
+whatsappButton.textContent = ' Escríbenos por WhatsApp';  // Espacio agregado para separar el ícono del texto
+whatsappButton.classList.add('whatsapp-btn');  // Clase para darle estilos CSS
+whatsappButton.style.display = 'inline-block'; 
+// Ícono de WhatsApp
+const whatsappIcon = document.createElement('span');
+whatsappIcon.classList.add('whatsapp-icon');
+whatsappButton.prepend(whatsappIcon);  // Agregar el ícono antes del texto
+
+main.appendChild(whatsappButton);
+document.getElementById('side-menu').style.left = '-100%';
+
 });
+displayHome();
