@@ -282,7 +282,7 @@ addressTitle.textContent = 'Dirección:';
 main.appendChild(addressTitle);
 
 const addressContent = document.createElement('p');
-addressContent.textContent = 'Dirección exacta del laboratorio dental.';
+addressContent.textContent = '4A Calle 51-02, Mixco, Cdad. de Guatemala 01057';
 main.appendChild(addressContent);
 
 // Sección de teléfono
@@ -291,7 +291,7 @@ phoneTitle.textContent = 'Teléfono:';
 main.appendChild(phoneTitle);
 
 const phoneContent = document.createElement('p');
-phoneContent.textContent = '(502) 4060-6440';
+phoneContent.textContent = '(502) 5460-2084';
 main.appendChild(phoneContent);
 
 // Sección de correo
@@ -314,7 +314,7 @@ main.appendChild(motivationContent);
 
 // Botón de WhatsApp
 const whatsappButton = document.createElement('a');
-whatsappButton.href = 'https://wa.me/50240606440';  // Número de teléfono después de /me/
+whatsappButton.href = 'https://wa.me/5025460-2084';  // Número de teléfono después de /me/
 whatsappButton.textContent = ' Escríbenos por WhatsApp';  // Espacio agregado para separar el ícono del texto
 whatsappButton.classList.add('whatsapp-btn');  // Clase para darle estilos CSS
 whatsappButton.style.display = 'inline-block'; 
