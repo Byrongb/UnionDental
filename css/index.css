@@ -542,3 +542,22 @@ margin-top: 0px; /* Espacio entre el párrafo y la imagen */
   height: 35vh;  /* 20% de la altura de la ventana */
 }
 }
+
+
+@media (min-width: 1660px) {
+  #logo{
+    max-width: 12%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
+  }
+}
+
+@media (min-width: 2036px) {
+  #logo{
+    max-width: 10%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
+  }
+}
