@@ -235,6 +235,7 @@ summary p {
   }
 
   header {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,6 +275,7 @@ summary p {
   #horizontal-menu ul li a:hover {
     background-color: blue;
   }
+  
 
   nav#side-menu {
     display: none; /* Ocultar el menú lateral en tablets */
@@ -344,7 +346,7 @@ summary p {
 
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) {
   /* Ajusta la fuente y el espaciado para la sección de políticas */
   summary {
       font-size: 20px;
@@ -371,4 +373,150 @@ summary p {
       display: block; /* Hace que la imagen sea un bloque para centrarla */
       margin: 0 auto;
   }
+}
+
+
+
+@media (min-width: 960px) {
+
+  #logo {
+    max-width: 18%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
+  }
+
+  main img {
+    max-width: 50%;
+    height: auto;
+    padding: 10px;
+  }
+
+  
+.square {
+  width: 96%;
+    min-height: 70px;
+}
+
+.square h2 {
+  margin-bottom: 10px; /* Reducir el tamaño de fuente para dispositivos móviles */
+}
+
+
+.square img {
+max-width: 40%; 
+margin-top: 0px; /* Espacio entre el párrafo y la imagen */
+}
+
+.square p {
+  margin-bottom: 10px;
+  }
+
+  
+.square-3, .square-4, .square-5, .square-6 {
+  border: none;
+  width: 50%;
+  box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.5);
+  line-height: 1.5;
+}
+
+.square-3 h2, .square-4 h2, .square-5 h2, .square-6 h2 {
+  order: 2; /* Pone el título después de la imagen */
+  font-size: 15px;
+}
+
+.square-3 img, .square-4 img, .square-5 img, .square-6 img {
+  order: 1; /* Pone la imagen primero */
+}
+
+.square-3 p, .square-4 p, .square-5 p, .square-6 p {
+  order: 3; /* Mantiene la descripción al final */
+  font-size: 10px;
+}
+
+#slider {
+  height: 35vh;  /* 20% de la altura de la ventana */
+}
+}
+
+
+@media (min-width: 1250px) {
+
+  #logo {
+    max-width: 15%; /* Ajusta este valor según lo que necesites */
+      height: auto;   /* Asegura que el logo mantenga su proporción */
+      display: block; /* Hace que la imagen sea un bloque para centrarla */
+      margin: 0 auto;
+  }
+
+  main img {
+    max-width: 40%;
+    height: auto;
+    padding: 10px;
+  }
+
+  main p {
+    font-size: 25px;
+    padding: 50px;
+  }
+  
+.square {
+  width: 100%;
+    min-height: 70px;
+}
+
+.square h2 {
+  margin-bottom: 20px; /* Reducir el tamaño de fuente para dispositivos móviles */
+  font-size: 35px;
+}
+
+
+.square img {
+max-width: 40%; 
+margin-top: 0px; /* Espacio entre el párrafo y la imagen */
+}
+
+.square p {
+  margin-bottom: 10px;
+  }
+
+.square-1{
+    width: 96%;
+    box-shadow: 0px 0px 40px rgba(0, 55, 255, 0.5);
+  }
+
+.square-2{
+  width: 60%;
+  box-shadow: 0px 0px 40px rgba(0, 55, 255, 0.5);
+}
+  
+.square-3, .square-4, .square-5, .square-6 {
+  border: none;
+  width: 50%;
+  box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.5);
+  line-height: 1.5;
+}
+
+.square-3 h2, .square-4 h2, .square-5 h2, .square-6 h2 {
+  order: 2; /* Pone el título después de la imagen */
+  font-size: 20px;
+}
+
+.square-3 img, .square-4 img, .square-5 img, .square-6 img {
+  order: 1; /* Pone la imagen primero */
+}
+
+.square-3 p, .square-4 p, .square-5 p, .square-6 p {
+  order: 3; /* Mantiene la descripción al final */
+  font-size: 15px;
+}
+
+.square-7 p{
+  width: 100%;
+  font-size: 15px;
+}
+
+#slider {
+  height: 35vh;  /* 20% de la altura de la ventana */
+}
 }
