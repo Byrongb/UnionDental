@@ -184,9 +184,10 @@ nav#side-menu ul li a {
 }
 
 h3, p {
-  text-align: left;
+  text-align: center;
   padding-left: 10px; /* Esto agrega un pequeño padding para que no esté totalmente pegado al borde. Ajusta según prefieras. */
 }
+
 
 details {
   margin-bottom: 20px;
