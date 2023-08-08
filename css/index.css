@@ -230,6 +230,10 @@ summary p {
 
 @media (min-width: 640px) {
   /* 1. El header solo lleva el logo */
+
+  body {
+    overflow-x: hidden;
+  }
   #menu-btn {
     display: none; /* Ocultamos el botón del menú para dispositivos móviles */
   }
@@ -348,6 +352,10 @@ summary p {
 
 @media screen and (min-width: 768px) {
   /* Ajusta la fuente y el espaciado para la sección de políticas */
+  body {
+    overflow-x: hidden;
+  }
+  
   summary {
       font-size: 20px;
       padding: 10px;
@@ -367,6 +375,12 @@ summary p {
 
 
 @media screen and (min-width: 500px) and (max-width: 699px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+
   #logo {
     max-width: 22%; /* Ajusta este valor según lo que necesites */
       height: auto;   /* Asegura que el logo mantenga su proporción */
@@ -378,6 +392,10 @@ summary p {
 
 
 @media (min-width: 960px) {
+
+  body {
+    overflow-x: hidden;
+  }
 
   #logo {
     max-width: 18%; /* Ajusta este valor según lo que necesites */
@@ -441,6 +459,10 @@ margin-top: 0px; /* Espacio entre el párrafo y la imagen */
 
 
 @media (min-width: 1250px) {
+
+  body {
+    overflow-x: hidden;
+  }
 
   #logo {
     max-width: 15%; /* Ajusta este valor según lo que necesites */
