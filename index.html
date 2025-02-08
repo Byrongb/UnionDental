@@ -3,14 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio Dental</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <title>Frase del Día</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Aquí es donde el JavaScript creará y agregará todo el contenido dinámicamente -->
+    <h2>🌟 Frase del Día 🌟</h2>
+    <p id="frase"></p>
 
-    <script src="./js/data.js"></script>
-    <script src="./js/main.js"></script>
-    
+    <script>
+        const frases = [
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "No cuentes los días, haz que los días cuenten.",
+            "La disciplina tarde o temprano vencerá a la inteligencia.",
+            "El único modo de hacer un gran trabajo es amar lo que haces.",
+            "Hoy es un buen día para empezar algo nuevo.",
+            "El futuro pertenece a quienes creen en la belleza de sus sueños.",
+            "Cada día es una nueva oportunidad para cambiar tu vida."
+        ];
+
+        function obtenerFraseDelDía() {
+            const hoy = new Date().toISOString().split('T')[0]; // Obtener la fecha en formato YYYY-MM-DD
+            const ultimaFecha = localStorage.getItem("ultimaFecha");
+            let fraseDelDia = localStorage.getItem("fraseDelDia");
+
+            if (hoy !== ultimaFecha || !fraseDelDia) {
+                fraseDelDia = frases[Math.floor(Math.random() * frases.length)];
+                localStorage.setItem("ultimaFecha", hoy);
+                localStorage.setItem("fraseDelDia", fraseDelDia);
+            }
+            return fraseDelDia;
+        }
+
+        document.getElementById("frase").textContent = obtenerFraseDelDía();
+    </script>
 </body>
 </html>
