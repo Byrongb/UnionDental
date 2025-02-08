@@ -6,30 +6,143 @@
     <title>Frase del Día</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
             padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9); /* Cuadrado gris oscuro */
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2); /* Sombra blanca sutil */
+        }
+        h2 {
             font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffcc00; /* Amarillo dorado para resaltar */
+        }
+        p {
+            font-size: 18px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <h2>🌟 Frase del Día 🌟</h2>
-    <p id="frase"></p>
+    <div class="container">
+        <h2>🦅 Frase del Día</h2>
+        <p id="frase"></p>
+    </div>
 
     <script>
         const frases = [
-            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
-            "No cuentes los días, haz que los días cuenten.",
-            "La disciplina tarde o temprano vencerá a la inteligencia.",
-            "El único modo de hacer un gran trabajo es amar lo que haces.",
-            "Hoy es un buen día para empezar algo nuevo.",
-            "El futuro pertenece a quienes creen en la belleza de sus sueños.",
-            "Cada día es una nueva oportunidad para cambiar tu vida."
+    "Soy un halcón guiado por Dios, Dulce no me afecta, no me interesa, no tiene poder sobre mí.",
+    "Voy a nadar en billetes, porque el dinero es una herramienta para la libertad.",
+    "Todo lo puedo en Cristo que me fortalece. – Filipenses 4:13",
+    "El enfoque es mi arma más poderosa.",
+    "Si te rindes ahora, volverás al punto donde empezaste. Y odiabas estar ahí.",
+    "Si caes siete veces, levántate ocho. – Proverbios 24:16",
+    "No busques excusas, busca resultados.",
+    "Soy mentalmente fuerte, emocionalmente indestructible y físicamente imparable.",
+    "El tiempo es oro, y yo lo invierto con sabiduría.",
+    "Cada hora bien aprovechada me acerca a la cima.",
+    "Los campeones entrenan cuando otros descansan.",
+    "La diferencia entre un ganador y un perdedor es la constancia.",
+    "No trabajo por dinero, el dinero trabaja para mí.",
+    "Cada golpe de la vida es solo otra razón para hacerme más fuerte.",
+    "No hay excusas, solo hay prioridades.",
+    "Si no me suma, me resta, y lo que me resta, lo elimino.",
+    "Esfuérzate y sé valiente, no temas ni desmayes, porque Jehová tu Dios estará contigo dondequiera que vayas. – Josué 1:9",
+    "Las grandes victorias empiezan en la mente.",
+    "El amor no es una cárcel emocional, es un refugio de paz.",
+    "Soy el dueño de mi destino, no una víctima de mis circunstancias.",
+    "Si quieres algo que nunca tuviste, haz algo que nunca hiciste.",
+    "No gasto tiempo en cosas que no me llevan a mi meta.",
+    "Seré millonario no por lo que tengo, sino por lo que soy.",
+    "Cada día vuelo más alto, más fuerte y más libre.",
+    "El justo florecerá como la palmera; crecerá como el cedro del Líbano. – Salmos 92:12",
+    "Los débiles buscan excusas, los fuertes buscan caminos.",
+    "Cada acción cuenta, cada momento es una inversión.",
+    "Dios me guía, y nada ni nadie puede detener mi propósito.",
+    "No soy esclavo de distracciones, soy dueño de mi tiempo.",
+    "Mi riqueza es inevitable porque mi mentalidad está programada para lograrlo.",
+    "No me dejo llevar por emociones, me dejo llevar por disciplina.",
+    "El éxito no es cuestión de suerte, es cuestión de preparación.",
+    "Si la vida me pone obstáculos, me convierto en alguien que los destruye.",
+    "Cuando el dolor llega, los débiles se quejan, los fuertes se entrenan.",
+    "Cada día que pasa, soy más fuerte que ayer.",
+    "No necesitas motivación, necesitas compromiso.",
+    "El principio de la sabiduría es el temor de Jehová; los necios desprecian la sabiduría y la enseñanza. – Proverbios 1:7",
+    "El dinero fluye hacia mí porque lo sé administrar y multiplicar.",
+    "Nunca dudes del poder de alguien que se niega a rendirse.",
+    "El perezoso desea y nada alcanza; pero el diligente será prosperado. – Proverbios 13:4",
+    "Cada vez que supero una prueba, mi nivel sube.",
+    "Mi trabajo es construir un legado, no solo hacer dinero.",
+    "Cada decisión que tomo me acerca a la riqueza.",
+    "El éxito no es cuestión de talento, es cuestión de hábitos.",
+    "Soy el arquitecto de mi propio destino.",
+    "No te conformes a este mundo, sino transfórmate por la renovación de tu mente. – Romanos 12:2",
+    "Cada día que te mantienes firme es un día más cerca de tu mejor versión.",
+    "Soy libre del pasado, solo importa lo que hago ahora.",
+    "Cada día que pasa, demuestro que un halcón no se deja atrapar por cadenas del pasado.",
+    "No busco validación, busco grandeza.",
+    "Los campeones no esperan, crean sus oportunidades.",
+    "El enfoque y la disciplina crean imperios.",
+    "Un rey no se ensucia con payasos, ellos solos terminan en su circo.",
+    "Si no estás construyendo, estás perdiendo el tiempo.",
+    "Voy a estar rodeado de abundancia.",
+    "La presión no me destruye, me transforma.",
+    "Cada día me acerco más a mi destino de grandeza.",
+    "No importa lo que pase, mi mente sigue enfocada en la meta.",
+    "Dios no nos ha dado espíritu de cobardía, sino de poder, de amor y de dominio propio. – 2 Timoteo 1:7",
+    "El éxito es el resultado de la constancia, no de la suerte.",
+    "Cada vez que resisto un pensamiento negativo, me hago más fuerte.",
+    "Nada ni nadie puede frenar mi crecimiento.",
+    "Voy a estar lleno de riqueza y éxito.",
+    "Si no me ven hoy, me verán mañana con resultados.",
+    "Mi mente está diseñada para la victoria.",
+    "Estoy en otro nivel, volando por encima de cualquier tormenta.",
+    "Si no eres el dueño de tu tiempo, alguien más lo será.",
+    "Cada sacrificio de hoy será mi éxito mañana.",
+    "El pasado no me define, el futuro lo construyo yo.",
+    "Soy imparable, cada día crezco más.",
+    "Si lo quieres, trabaja por ello, sin excusas.",
+    "El mundo pertenece a los que se atreven a tomarlo.",
+    "Soy el único responsable de mi destino.",
+    "Cada segundo que pierdo es un segundo menos de éxito.",
+    "Las oportunidades no llegan, se crean con esfuerzo.",
+    "La gente normal busca comodidad, los grandes buscan desafíos.",
+    "Cada vez que ignoro el ruido, mi enfoque se vuelve más letal.",
+    "La mediocridad no es una opción en mi vida.",
+    "Voy a dominar el juego porque ya no compito con nadie, solo conmigo mismo.",
+    "La paciencia y la disciplina son las armas de los invencibles.",
+    "Nada puede detener a un hombre con visión y determinación.",
+    "El único límite es el que yo mismo me imponga.",
+    "Viviré mi vida de una manera que no necesite vacaciones para escapar de ella.",
+    "Cada día me separo más de lo común y me acerco a lo extraordinario.",
+    "La riqueza es un juego mental, y yo lo estoy dominando.",
+    "No hay tal cosa como suerte, solo hay preparación y oportunidad.",
+    "Todo en la vida es una elección, y yo elijo el éxito.",
+    "Voy a dejar un legado que hable por sí solo.",
+    "No hay atajos para la grandeza, pero hay un camino, y lo estoy recorriendo.",
+    "La mentalidad correcta transforma cualquier realidad.",
+    "La vida es de los que están dispuestos a pagar el precio del éxito.",
+    "Cada vez que alguien duda de mí, me da más combustible para triunfar.",
+    "El fracaso solo existe si me rindo, y eso no está en mi vocabulario.",
+    "La única validación que necesito es la mía.",
+    "El mundo es de los que se atreven a tomarlo.",
+    "El hambre de éxito supera cualquier obstáculo.",
+    "No vine a ser promedio, vine a ser leyenda."
         ];
 
         function obtenerFraseDelDía() {
-            const hoy = new Date().toISOString().split('T')[0]; // Obtener la fecha en formato YYYY-MM-DD
+            const hoy = new Date().toISOString().split('T')[0]; 
             const ultimaFecha = localStorage.getItem("ultimaFecha");
             let fraseDelDia = localStorage.getItem("fraseDelDia");
 
